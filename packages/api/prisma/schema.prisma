@@ -11,7 +11,18 @@ datasource db {
 }
 
 model Company {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  id       String     @id @default(uuid())
+  email    String     @unique
+  name     String?
+  Employee Employee[]
+}
+
+model Employee {
+  id        String  @id @default(uuid())
+  email     String  @unique
+  first_nam String?
+  last_name String?
+  birthday  String?
+  companyId String
+  company   Company @relation(fields: [companyId], references: [id])
 }
