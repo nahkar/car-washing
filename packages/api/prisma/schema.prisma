@@ -15,14 +15,23 @@ model Company {
   email    String     @unique
   name     String?
   Employee Employee[]
+  Category Category[]
 }
 
 model Employee {
-  id        String  @id @default(uuid())
-  email     String  @unique
-  first_nam String?
-  last_name String?
-  birthday  String?
-  companyId String
-  company   Company @relation(fields: [companyId], references: [id])
+  id         String  @id @default(uuid())
+  email      String  @unique
+  first_nam  String?
+  last_name  String?
+  birthday   String?
+  company_id String
+  company    Company @relation(fields: [company_id], references: [id])
+}
+
+model Category {
+  id         String  @id @default(uuid())
+  name       String
+  price      Float
+  company_id String
+  company    Company @relation(fields: [company_id], references: [id])
 }
