@@ -21,11 +21,11 @@ model Company {
 model Employee {
   id         String  @id @default(uuid())
   email      String  @unique
-  first_nam  String?
+  first_name String?
   last_name  String?
   birthday   String?
   company_id String
-  company    Company @relation(fields: [company_id], references: [id])
+  Company    Company @relation(fields: [company_id], references: [id])
 }
 
 model Category {
@@ -33,5 +33,26 @@ model Category {
   name       String
   price      Float
   company_id String
-  company    Company @relation(fields: [company_id], references: [id])
+  Company    Company @relation(fields: [company_id], references: [id])
+}
+
+model Customer {
+  id         String  @id @default(uuid())
+  phone      String  @unique
+  first_name String?
+  last_name  String?
+  birthday   String?
+  Car        Car[]
+}
+
+model Car {
+  id          String   @id @default(uuid())
+  number      String
+  brand       String?
+  model       String?
+  gneration   String?
+  color       String?
+  year        String?
+  customer_id String
+  Customer    Customer @relation(fields: [customer_id], references: [id])
 }
