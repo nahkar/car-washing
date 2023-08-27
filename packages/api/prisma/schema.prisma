@@ -16,6 +16,7 @@ model Company {
   name     String?
   Employee Employee[]
   Category Category[]
+  Box      Box[]
 }
 
 model Employee {
@@ -32,6 +33,13 @@ model Category {
   id         String  @id @default(uuid())
   name       String
   price      Float
+  company_id String
+  Company    Company @relation(fields: [company_id], references: [id])
+}
+
+model Box {
+  id         String  @id @default(uuid())
+  name       String
   company_id String
   Company    Company @relation(fields: [company_id], references: [id])
 }

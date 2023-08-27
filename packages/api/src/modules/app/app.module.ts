@@ -5,6 +5,7 @@ import { EmployeeModule } from '../employee/employee.module';
 import { CategoryModule } from '../category/category.module';
 import { CarModule } from '../car/car.module';
 import { CustomerModule } from '../customer/customer.module';
+import { BoxModule } from '../box/box.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { CustomerModule } from '../customer/customer.module';
     CategoryModule,
     CarModule,
     CustomerModule,
+    BoxModule,
   ],
   controllers: [],
 })
