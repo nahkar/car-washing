@@ -38,10 +38,25 @@ model Category {
 }
 
 model Box {
-  id         String  @id @default(uuid())
+  id         String    @id @default(uuid())
   name       String
   company_id String
-  Company    Company @relation(fields: [company_id], references: [id])
+  Company    Company   @relation(fields: [company_id], references: [id], onDelete: Cascade)
+  Service    Service[]
+}
+
+model Service {
+  id          String   @id @default(uuid())
+  contract_id String
+  box_id      String
+  Box         Box      @relation(fields: [box_id], references: [id])
+  Contract    Contract @relation(fields: [contract_id], references: [id])
+}
+
+model Contract {
+  id      String    @id @default(uuid())
+  date    DateTime  @default(now())
+  Service Service[]
 }
 
 model Customer {

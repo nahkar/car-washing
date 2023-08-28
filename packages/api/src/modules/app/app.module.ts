@@ -8,18 +8,18 @@ import { CustomerModule } from '../customer/customer.module';
 import { BoxModule } from '../box/box.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-      envFilePath: `.env.${process.env.NODE_ENV}`,
-    }),
-    CompanyModule,
-    EmployeeModule,
-    CategoryModule,
-    CarModule,
-    CustomerModule,
-    BoxModule,
-  ],
-  controllers: [],
+	imports: [
+		ConfigModule.forRoot({
+			isGlobal: true,
+			envFilePath: `.env.${process.env.NODE_ENV}`,
+		}),
+		CompanyModule,
+		EmployeeModule,
+		CategoryModule,
+		CarModule,
+		CustomerModule,
+		BoxModule,
+	],
+	controllers: [],
 })
 export class AppModule {}

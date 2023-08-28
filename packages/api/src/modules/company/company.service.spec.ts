@@ -4,18 +4,18 @@ import { PrismaService } from '../../prisma.service';
 import { CompanyController } from './company.controller';
 
 describe('CompanyService', () => {
-  let service: CompanyService;
+	let service: CompanyService;
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [CompanyController],
-      providers: [PrismaService, CompanyService],
-    }).compile();
+	beforeEach(async () => {
+		const module: TestingModule = await Test.createTestingModule({
+			controllers: [CompanyController],
+			providers: [PrismaService, CompanyService],
+		}).compile();
 
-    service = module.get<CompanyService>(CompanyService);
-  });
+		service = module.get<CompanyService>(CompanyService);
+	});
 
-  it('should be defined', () => {
-    expect(service).toBeDefined();
-  });
+	it('should be defined', () => {
+		expect(service).toBeDefined();
+	});
 });
